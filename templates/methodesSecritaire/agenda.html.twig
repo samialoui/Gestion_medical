@@ -1,0 +1,41 @@
+{% extends 'template.html.twig' %}
+
+{% block title %}Agenda{% endblock %}
+{% block stylesheets %}
+    <style>
+        #calendrier{
+            width: 80%;
+            margin: auto;
+            background-color: gray;
+
+        }
+    </style>
+{% endblock %}
+{% block body %}
+    <div class="card" style="background-color: green">
+        <h2 style="color: white">Agenda</h2>
+    </div>
+    <br>
+    <div id="calendrier">
+    </div>
+
+{% endblock %}
+{% block javascripts %}
+    <script>
+        window.onload = () =>{
+            let calendarElt = document.querySelector('#calendrier')
+            let calendar = new FullCalendar.Calendar(calendarElt,{
+                initialView : 'timeGridWeek',
+                locale :'fr',
+                timeZone : 'Europe/Paris',
+                headerCallback: {
+                    start: 'prev,next today',
+                    center: 'title',
+                    end: 'dayGridMonth,timeGridWeek',
+                },
+                events : {{ data|raw }}
+            });
+            calendar.render();
+        }
+    </script>
+{% endblock %}

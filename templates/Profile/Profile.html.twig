@@ -1,0 +1,73 @@
+{% extends 'template.html.twig' %}
+{% block title%}Profile{% endblock %}
+{% block body %}
+    <div class="page-title">
+        <h1 class="tracking-in-expand">Mon profil</h1>
+        <hr class="col-9.5" style="color: blue; ">
+    </div>
+    <form id="form" name="form" method="post" action="/sge/portal/myProfile.faces" enctype="multipart/form-data">
+        <input type="hidden" name="form" value="form" />
+
+
+        <div id="messagesRegion" aria-label="form feedback" aria-live="assertive" aria-relevant="additions">
+            <div id="form:messages">
+            </div>
+        </div>
+        <div class="container" style="margin-left: 0px;">
+            <div class="row">
+
+                <div class="sge-user-profile-info col-lg-3 col-md-12 text-center">
+                    <img class="rounded-circle" width="120px" height="120px" src="{{ asset('uploads/users/' ~ app.user.image) }}">
+                    <h2>{{ app.user.prenom }} {{ app.user.nom }}</h2>
+                    <p>Login : </p>
+                    <p>{{ app.user.email}}</p>
+                    <p>Adresse : </p>
+                    <p>{{ app.user.adresse}}</p>
+
+                </div>
+                <div class="col-lg-9 col-md-12">
+                    <h3 class="my-profile-section-h">Contact</h3>
+                    <hr class="col-9" style="color: blue; ">
+                    <dl class="row">
+                        <dt class="col-sm-3">E-mail :</dt>
+                        <dd class="col-sm-9">{{ app.user.email}}</dd>
+                        <dt class="col-sm-3">Téléphone :</dt>
+                        <dd class="col-sm-9">{{ app.user.numTele}}</dd>
+
+                    </dl>
+                    <h3 class="my-profile-section-h">Informations personnelles</h3>
+                    <hr class="col-9" style="color: blue; ">
+                    <dl class="row">
+                        <dt class="col-sm-3">Nom :</dt>
+                        <dd class="col-sm-9">{{ app.user.nom}}
+                        </dd>
+                        <dt class="col-sm-3">Prénom :</dt>
+                        <dd class="col-sm-9">{{ app.user.prenom }}
+                        </dd>
+                        <dt class="col-sm-3">Sexe :</dt>
+                        <dd class="col-sm-9">{{ app.user.sexe }}
+                        </dd>
+                        <dt class="col-sm-3">Age :</dt>
+                        <dd class="col-sm-9">{{ app.user.age }}</dd>
+                        <dt class="col-sm-3">Profession :</dt>
+                        <dd class="col-sm-9">
+                            {{ app.user.profession }}
+                        </dd>
+                        <dt class="col-sm-3">Adresse :</dt>
+                        <dd class="col-sm-9">
+                            {{ app.user.adresse }}
+                        </dd>
+                    </dl>
+                    <h3 class="my-profile-section-h">Pièce d'identité</h3>
+                    <hr class="col-9" style="color: blue; ">
+                    <dl class="row">
+                        <dt class="col-sm-3">Téléphone :</dt>
+                        <dd class="col-sm-9">{{ app.user.numTele }}</dd>
+                        </dd>
+                    </dl>
+                </div>
+                <div class="w-100"></div>
+            </div>
+        </div>
+    </form>
+{% endblock %}

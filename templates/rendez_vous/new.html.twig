@@ -1,0 +1,12 @@
+{% extends 'template.html.twig' %}
+
+{% block title %}New RendezVous{% endblock %}
+
+{% block body %}
+    <h1>Créer RendezVous</h1>
+    <hr>
+
+    {{ include('rendez_vous/_form.html.twig') }}
+
+    <button class="btn btn-success" style="margin-left: 70%"> <a href="{{ path('rendez_vous_index') }}" style="color: white">retour</a></button>
+{% endblock %}

@@ -1,0 +1,10 @@
+{% extends 'template.html.twig' %}
+{% block title %}Modifier patient{% endblock %}
+{% block body %}
+    <h1>Modifer patient </h1>
+    <hr>
+    {% form_theme form 'bootstrap_4_layout.html.twig' %}
+    {{ form_start(form) }}
+    {{ form_widget(form) }}
+    {{ form_end(form) }}
+{% endblock %}

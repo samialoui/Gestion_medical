@@ -1,0 +1,12 @@
+{% extends 'template.html.twig' %}
+{% block title %}Acceuil{% endblock %}
+{% block body %}
+    <div class="list-inline">
+
+        <button type="button"  style="height: 120px;width: 40%;color: white;background-color: dodgerblue; border-color: dodgerblue; border-radius: 1em;"><i class="fa fa-calendar" style="width: 40px;height: 40px; margin-right: 80%; color: white"></i><a href="/Afficher_rv" style="color: transparent"><h1 style="margin-bottom: 40px;color: white">Agenda</h1></a></button>
+
+            <button type="button"  style="height: 120px;width: 40%;color: white;background-color: darkgreen; border-color: darkgreen; border-radius: 1em;margin-left: 25px;margin-bottom: 10px">
+                <i class="fa fa-user-plus" style="width: 40px;height: 40px; margin-right: 80%; color: white"></i><a href="/ajouter" style="color: transparent"><h1 style="margin-bottom: 40px;color: white">Ajouter patient</h1></a></button>
+
+    </div>
+{% endblock %}

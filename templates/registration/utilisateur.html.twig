@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+{% block title %} Nouveau utilisateur {% endblock %}
+{% block body %}
+    <h1>Nouveau utilisateur : </h1>
+    <hr>
+    {% form_theme form 'bootstrap_4_layout.html.twig' %}
+    {{ form_start(form) }}
+    {{ form_widget(form) }}
+    {{ form_end(form) }}
+{% endblock %}

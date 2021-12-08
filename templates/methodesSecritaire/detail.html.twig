@@ -1,0 +1,24 @@
+{% extends 'template.html.twig' %}
+{% block title %} Details {% endblock %}
+{% block body %}
+    <h1>Details patient </h1>
+    <hr>
+    <div class="row">
+    {% if patient %}
+        <div class="card col-3 m-2">
+            <div class="card-body">
+                <h3 class="card-title">{{ patient.nom }} {{ patient.prenom }}</h3>
+                <h5 class="card-subtitle">{{ patient.numDos }}</h5>
+                <h6 class="card-subtitle">{{ patient.age }}</h6>
+                <h6 class="card-subtitle">{{ patient.sexe }}</h6>
+                <p class="card-text">{{ patient.numTel }}</p>
+                <p class="card-text">{{ patient.adr }}</p>
+
+            </div>
+
+        </div>
+
+    {% endif %}
+    </div>
+    <button class="btn btn-success" type="submit"><a href="/list" style="color: white">Retour</a></button>
+{% endblock %}

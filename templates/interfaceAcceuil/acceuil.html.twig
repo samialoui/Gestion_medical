@@ -1,12 +1,28 @@
 {% extends 'template.html.twig' %}
 {% block title %}Acceuil{% endblock %}
 {% block body %}
+    <h6 style="color: cornflowerblue ; margin-bottom: 40px;"><svg xmlns="http://www.w3.org/2000/svg" style="margin-bottom: 10px" width="18" height="18" fill="currentColor" class="bi bi-house-door-fill" viewBox="0 0 16 16">
+            <path d="M6.5 14.5v-3.505c0-.245.25-.495.5-.495h2c.25 0 .5.25.5.5v3.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5z"/>
+        </svg>Bienvenue sur GSP-ProMédical </h6>
+    {% if app.user.profession =="medecin" %}
     <div class="list-inline">
 
-        <button type="button"  style="height: 120px;width: 40%;color: white;background-color: dodgerblue; border-color: dodgerblue; border-radius: 1em;"><i class="fa fa-calendar" style="width: 40px;height: 40px; margin-right: 80%; color: white"></i><a href="/Afficher_rv" style="color: transparent"><h1 style="margin-bottom: 40px;color: white">Agenda</h1></a></button>
+        <button type="button"  style="height: 100px;width: 30%;color: white;background-color: dodgerblue; border-color: dodgerblue; border-radius: 1em;"><i class="fa fa-calendar" style="width: 40px;height: 40px; margin-right: 80%; color: white"></i><a href="/Afficher_rv" style="color: transparent"><h1 style="margin-bottom: 40px;color: white">Agenda</h1></a></button>
 
-            <button type="button"  style="height: 120px;width: 40%;color: white;background-color: darkgreen; border-color: darkgreen; border-radius: 1em;margin-left: 25px;margin-bottom: 10px">
+            <button type="button"  style="height: 100px;width: 30%;color: white;background-color: red; border-color: red; border-radius: 1em;margin-left: 25px;margin-bottom: 10px">
                 <i class="fa fa-user-plus" style="width: 40px;height: 40px; margin-right: 80%; color: white"></i><a href="/ajouter" style="color: transparent"><h1 style="margin-bottom: 40px;color: white">Ajouter patient</h1></a></button>
 
+        <button type="button"  style="height: 100px;width: 30%;color: white;background-color: darkgreen; border-color: darkgreen; border-radius: 1em;margin-left: 25px;margin-bottom: 10px">
+            <i class="fa fa-folder" style="width: 40px;height: 40px; margin-right: 80%; color: white"></i><a href="/ajouter" style="color: transparent"><h1 style="margin-bottom: 40px;color: white">Ouvrir dossier</h1></a></button>
     </div>
+    {% endif %}
+    {% if app.user.profession =="secretaire" %}
+        <div class="list-inline">
+
+            <button type="button"  style="height: 120px;width: 40%;color: white;background-color: dodgerblue; border-color: dodgerblue; border-radius: 1em;"><i class="fa fa-calendar" style="width: 40px;height: 40px; margin-right: 80%; color: white"></i><a href="/Afficher_rv" style="color: transparent"><h1 style="margin-bottom: 40px;color: white">Agenda</h1></a></button>
+
+            <button type="button"  style="height: 120px;width: 40%;color: white;background-color: red; border-color: red; border-radius: 1em;margin-left: 25px;margin-bottom: 10px">
+                <i class="fa fa-user-plus" style="width: 40px;height: 40px; margin-right: 80%; color: white"></i><a href="/ajouter" style="color: transparent"><h1 style="margin-bottom: 40px;color: white">Ajouter patient</h1></a></button>
+        </div>
+    {% endif %}
 {% endblock %}

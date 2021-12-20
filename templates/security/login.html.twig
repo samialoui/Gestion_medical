@@ -4,101 +4,87 @@
 {% block title %}Connexion{% endblock %}
 
 {% block body %}
-
-<html style="	margin: 0;
-			padding: 0;
-			height: 100%;
-			background: #60a3bc !important;
- background-color:#60a3bc ">
-
-<!--Coded with love by Mutiullah Samim-->
-<body style="margin-top: 10%;background-color: #60a3bc">
-<div class="container h-100">
+<html style="background-image: url('https://getwallpapers.com/wallpaper/full/5/4/b/1520326-beautiful-medical-wallpaper-backgrounds-1920x1080.jpg');
+background-size: cover;
+background-repeat: no-repeat;
+height: 100%;
+font-family: 'Numans', sans-serif;">
+<body style="background-image: url('https://getwallpapers.com/wallpaper/full/5/4/b/1520326-beautiful-medical-wallpaper-backgrounds-1920x1080.jpg');
+background-size: cover;
+background-repeat: no-repeat;
+height: 100%;
+font-family: 'Numans', sans-serif;">
+<div class="container" style="height: 100%;
+align-content: center;">
     <div class="d-flex justify-content-center h-100">
-        <div class="user_card" style="	height: 400px;
-			width: 350px;
-			margin-top: auto;
-			margin-bottom: auto;
-			background: #f39c12;
-			position: relative;
-			display: flex;
-			justify-content: center;
-			flex-direction: column;
-			padding: 10px;
-			box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-			-webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-			-moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-			border-radius: 5px;">
-            <div class="d-flex justify-content-center">
-                <div class="brand_logo_container" style="	position: absolute;
-			height: 170px;
-			width: 170px;
-			top: -75px;
-			border-radius: 50%;
-			background: #60a3bc;
-			padding: 10px;
-			text-align: center;">
-                    <img src="https://cdn.freebiesupply.com/logos/large/2x/pinterest-circle-logo-png-transparent.png" class="brand_logo"  style="	height: 150px;
-			width: 150px;
-			border-radius: 50%;
-			border: 2px solid #60a3bc;" alt="Logo">
+        <div class="card" style="height: 370px;
+margin-top: auto;
+margin-bottom: auto;
+width: 400px;
+background-color: rgba(0,0,0,0.5) !important;">
+            <div class="card-header" style="color: white;">
+                <h3>Connexion</h3>
+                <div class="d-flex justify-content-end social_icon" style="font-size: 60px;
+margin-left: 10px;
+color: #FFC312;color: white;
+cursor: pointer;position: absolute;
+right: 20px;
+top: -45px;">
+                    <span style="font-size: 60px;margin-left: 10px;color: #FFC312;"><i class="fab fa-facebook-square"></i></span>
+                    <span style="font-size: 60px;margin-left: 10px;color: #FFC312;"><i class="fab fa-google-plus-square"></i></span>
+                    <span style="font-size: 60px;margin-left: 10px;color: #FFC312;"><i class="fab fa-twitter-square"></i></span>
                 </div>
             </div>
-            <div class="d-flex justify-content-center form_container" style="	margin-top: 100px;">
+            <div class="card-body">
                 <form method="post">
-                    {% if error %}
-                        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-                    {% endif %}
+                {% if error %}
+                    <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                {% endif %}
 
-                    {% if app.user %}
+                {% if app.user %}
 
-                    {% endif %}
-                    <h2 class="text-center">Connexion</h2>
-
-                    <div class="input-group mb-3">
-                        <div class="input-group-append">
-                            <span class="input-group-text" style="	background: #c0392b !important;
-			color: white !important;
-			border: 0 !important;
-			border-radius: 0.25rem 0 0 0.25rem !important;"><i class="fas fa-user"></i></span>
+                {% endif %}
+                    <div class="input-group form-group" style="background-color:#FFC312 ">
+                        <div class="input-group-prepend"  >
+                            <span style="width: 50px;
+background-color: #FFC312;
+color: black;
+border:0 !important;" class="input-group-text" ><i class="fas fa-user" ></i></span>
                         </div>
-                        <input name="email" id="inputEmail" class="form-control input_user" autocomplete="email"  style="	box-shadow: none !important;
-			outline: 0px !important;" value="{{ last_username }}"  placeholder="Identifiant" required autofocus>
+                        <input type="text" name="email" id="inputEmail" class="form-control input_user" autocomplete="email"  value="{{ last_username }}"  placeholder="Identifiant" required autofocus>
+
                     </div>
-                    <div class="input-group mb-2">
-                        <div class="input-group-append">
-                            <span class="input-group-text" style="	background: #c0392b !important;
-			color: white !important;
-			border: 0 !important;
-			border-radius: 0.25rem 0 0 0.25rem !important;"><i class="fas fa-key"></i></span>
+                    <div class="input-group form-group">
+                        <div class="input-group-prepend"style="color:#FFC312 ">
+                            <span style="width: 50px;
+background-color: #FFC312;
+color: black;
+border:0 !important;" class="input-group-text" ><i class="fas fa-key"></i></span>
                         </div>
                         <input type="password" name="password" id="inputPassword" class="form-control input_pass" autocomplete="current-password"  placeholder="Mot de passe" required>
-
                         <input type="hidden" name="_csrf_token"  value="{{ csrf_token('authenticate') }}">
                     </div>
-                    <div class="form-group">
-                        <div class="custom-control custom-checkbox" style="	background-color: transparent !important;">
-                            <input type="checkbox" class="custom-control-input" id="customControlInline">
-                            <label class="custom-control-label" for="customControlInline">
-                                souviens-toi de moi</label>
-                        </div>
+                    <div class="row align-items-center remember" style="color: white;">
+                        <input type="checkbox" style="width: 20px;
+height: 20px;
+margin-left: 15px;
+margin-right: 5px;" name="remember_me">souviens-toi de moi
                     </div>
-                    <div class="d-flex justify-content-center mt-3 login_container" style="	padding: 0 2rem;">
-                        <button type="submit" name="button" class="btn login_btn" style="	width: 100%;
-			background: #c0392b !important;
-			color: white !important;	box-shadow: none !important;
-			outline: 0px !important;">Connexion</button>
+                    <div class="form-group">
+                        <input type="submit" value="Connexion" class="btn float-right login_btn" style="color: black;
+background-color: #FFC312;
+width: 100px;color: black;
+background-color: #FFC312;">
                     </div>
                 </form>
             </div>
-
-            <div class="mt-4">
-                <div class="d-flex justify-content-center links">
-                    <a href="/erreur">Mot de passe oublié?</a>
+            <div class="card-footer">
+                <div class="d-flex justify-content-center">
+                    <a href="/register">Créer un compte</a>
                 </div>
             </div>
         </div>
-    </div>
+        </div>
 </div>
 </body>
 </html>

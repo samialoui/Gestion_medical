@@ -52,6 +52,18 @@ class Patient
      */
     private $adr;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Consultation::class, inversedBy="patient")
+     */
+    private $consultation;
+
+    /**
+     * @ORM\OneToOne(targetEntity=Consultation::class, cascade={"persist", "remove"})
+     */
+    private $Consultation;
+
+
+
     public function getId(): ?int
     {
         return $this->id;
@@ -137,6 +149,21 @@ class Patient
     public function setAdr(string $adr): self
     {
         $this->adr = $adr;
+
+        return $this;
+    }
+ public function __toString(){
+                  return $this->nom .' '.$this->prenom;
+             }
+
+    public function getConsultation(): ?Consultation
+    {
+        return $this->consultation;
+    }
+
+    public function setConsultation(?Consultation $consultation): self
+    {
+        $this->consultation = $consultation;
 
         return $this;
     }

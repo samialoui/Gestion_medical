@@ -1,14 +1,14 @@
 {% extends 'template.html.twig' %}
 
-{% block title %}Edit RendezVous{% endblock %}
+{% block title %}Modifer Rendez-Vous{% endblock %}
 
 {% block body %}
-    <h1>Modifier RendezVous</h1>
+    <h1>Modifier Rendez-Vous</h1>
     <hr>
 
-    {{ include('rendez_vous/_form.html.twig', {'button_label': 'Update'}) }}
+    {{ include('rendez_vous/_form.html.twig', {'button_label': 'Modifer'}) }}
 
-    <a href="{{ path('rendez_vous_index') }}">back to list</a>
+    <button class="btn btn-success" style="margin-left: 90%"><a style="color: white; " href="{{ path('rendez_vous_index') }}">Retour</a> </button>
 
-    {{ include('rendez_vous/_delete_form.html.twig') }}
+   {#  {{ include('rendez_vous/_delete_form.html.twig') }} #}
 {% endblock %}

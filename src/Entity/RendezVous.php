@@ -57,6 +57,13 @@ class RendezVous
      */
     private $textColor;
 
+    /**
+     * @ORM\OneToOne(targetEntity=Patient::class, cascade={"persist", "remove"})
+     */
+    private $patient;
+
+
+
     public function getId(): ?int
     {
         return $this->id;
@@ -154,6 +161,18 @@ class RendezVous
     public function setTextColor(string $textColor): self
     {
         $this->textColor = $textColor;
+
+        return $this;
+    }
+
+    public function getPatient(): ?Patient
+    {
+        return $this->patient;
+    }
+
+    public function setPatient(?Patient $patient): self
+    {
+        $this->patient = $patient;
 
         return $this;
     }

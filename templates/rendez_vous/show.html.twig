@@ -1,9 +1,9 @@
 {% extends 'template.html.twig' %}
 
-{% block title %}RendezVous{% endblock %}
+{% block title %}Rendez-Vous{% endblock %}
 
 {% block body %}
-    <h1>RendezVous</h1>
+    <h1>Rendez-Vous</h1>
 <hr>
     <table class="table">
         <tbody>
@@ -16,11 +16,11 @@
                 <td>{{ rendez_vou.titre }}</td>
             </tr>
             <tr>
-                <th>Start</th>
+                <th>Début</th>
                 <td>{{ rendez_vou.start ? rendez_vou.start|date('Y-m-d H:i:s') : '' }}</td>
             </tr>
             <tr>
-                <th>End</th>
+                <th>Fin</th>
                 <td>{{ rendez_vou.end ? rendez_vou.end|date('Y-m-d H:i:s') : '' }}</td>
             </tr>
             <tr>
@@ -28,7 +28,7 @@
                 <td>{{ rendez_vou.description }}</td>
             </tr>
             <tr>
-                <th>All_days</th>
+                <th>Tout jour</th>
                 <td>{{ rendez_vou.allDays ? 'Yes' : 'No' }}</td>
             </tr>
             <tr>
@@ -46,9 +46,9 @@
         </tbody>
     </table>
 
-    <a href="{{ path('rendez_vous_index') }}">back to list</a>
+    <button class="btn btn-success" style="margin-left: 93%"><a  style="color:white;" href="{{ path('rendez_vous_index') }}">Retour</a> </button>
 
-    <a href="{{ path('rendez_vous_edit', {'id': rendez_vou.id}) }}">edit</a>
+  {#   <a href="{{ path('rendez_vous_edit', {'id': rendez_vou.id}) }}">Modifier</a>
 
-    {{ include('rendez_vous/_delete_form.html.twig') }}
+    {{ include('rendez_vous/_delete_form.html.twig') }} #}
 {% endblock %}

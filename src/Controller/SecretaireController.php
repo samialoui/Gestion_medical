@@ -26,6 +26,24 @@ class SecretaireController extends AbstractController
         $patients = $this->getDoctrine()->getRepository(Patient::class)->findAll();
         return $this->render('methodesSecritaire/Afficher.html.twig',['patients'=>$patients]);
     }
+    /**
+     * @Route("/list.patients", name="liste_patients")
+     */
+    public function home2()
+    {
+
+        $patients = $this->getDoctrine()->getRepository(Patient::class)->findAll();
+        return $this->render('methodesSecritaire/Affiche2.html.twig',['patients'=>$patients]);
+    }
+    /**
+     * @Route("/list.dossiers", name="liste_dossiers")
+     */
+    public function home3()
+    {
+
+        $patients = $this->getDoctrine()->getRepository(Patient::class)->findAll();
+        return $this->render('methodesSecritaire/Affiche3.html.twig',['patients'=>$patients]);
+    }
 
     /**
      * @Route("/ajouter", name="ajouter_patient")
@@ -128,13 +146,14 @@ class SecretaireController extends AbstractController
                 'start'=>$event->getStart()->format('Y-m-d H:i:s'),
                 'end'=>$event->getEnd()->format('Y-m-d H:i:s'),
                 'description'=>$event->getDescription(),
-                'backroundColor'=>$event->getBackroundColor(),
+                'backgroundColor'=>$event->getBackroundColor(),
                 'borderColor'=>$event->getBorderColor(),
                 'textColor'=>$event->getTextColor(),
                 'all_days'=>$event->getAllDays(),
             ];
         }
         $data=json_encode($rdvs);
+        //dd($data);
         return $this->render('methodesSecritaire/agenda.html.twig',['data'=>$data]);
     }
 
@@ -159,7 +178,7 @@ class SecretaireController extends AbstractController
             ->add('adresse',TextType::class)
             ->add('numTele',TextType::class)
             ->add('image', FileType::class, [
-                'label' => 'Brochure (PDF file)',
+                'label' => 'Image (PDF/JPG/SVG/PNG)',
                 'mapped' => false,
                 'required' => false,
                 /*'constraints' => [

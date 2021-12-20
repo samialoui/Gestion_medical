@@ -1,0 +1,12 @@
+{% extends 'template.html.twig' %}
+
+{% block title %}Nouveau Consultation{% endblock %}
+
+{% block body %}
+    <h1>Créer Consultation</h1>
+    <hr>
+
+    {{ include('medecin/_form.html.twig') }}
+
+    <button class="btn btn-success" style="margin-left: 90%"> <a href="{{ path('consultations.list') }}" style="color: white">Retour</a></button>
+{% endblock %}

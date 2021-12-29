@@ -2,8 +2,13 @@
 
 namespace App\Controller;
 
+use App\Entity\Antecedents;
 use App\Entity\Consultation;
+use App\Entity\Hospitalisations;
+use App\Entity\Patient;
 use App\Entity\RendezVous;
+use App\Entity\Traitements;
+use App\Entity\Visite;
 use App\Form\ConsultationType;
 use App\Form\RendezVousType;
 use App\Repository\ConsultationRepository;
@@ -44,5 +49,28 @@ class MedecinController extends AbstractController
             'consultation' => $consultation,
             'form' => $form,
         ]);
+    }
+    #[Route('/foundation/{id}', name: 'joint', methods: ['GET', 'POST'])]
+    public function find($id) {
+        $repository1 = $this->getDoctrine()
+            ->getRepository(Patient::class);
+        $Patient = $repository1->findPatientById($id);
+
+        $repository2 = $this->getDoctrine()
+            ->getRepository(Visite::class);
+        $Visite = $repository2->findVisiteById($id);
+
+        $repository3 = $this->getDoctrine()
+            ->getRepository(Antecedents::class);
+        $Antecedent = $repository3->findAntecedentById($id);
+        $repository4 = $this->getDoctrine()
+            ->getRepository(Traitements::class);
+        $Traitement = $repository4->findTraitementById($id);
+        return $this->render('methodesSecritaire/detail.html.twig', [
+            'patients' => $Patient,
+            'visites' => $Visite,
+            'antecedents' => $Antecedent,
+            'traitements' => $Traitement
+            ]);
     }
 }

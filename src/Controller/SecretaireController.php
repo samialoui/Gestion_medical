@@ -105,6 +105,13 @@ class SecretaireController extends AbstractController
         $patient = $this->getDoctrine()->getRepository(Patient::class)->find($id);
         return $this->render('methodesSecritaire/detail.html.twig',array('patient'=>$patient));
     }
+    /**
+     * @Route("/patient/detail2/{id}" , name="detail2_patient")
+     */
+    public function detail2Pat($id){
+        $patient = $this->getDoctrine()->getRepository(Patient::class)->find($id);
+        return $this->render('methodesSecritaire/detail2.html.twig',array('patient'=>$patient));
+    }
 
     /**
      * @Route("patient/supprimer/{id}" , name="supprimer_patient")

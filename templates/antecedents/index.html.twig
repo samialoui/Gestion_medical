@@ -1,0 +1,37 @@
+{% extends 'template.html.twig' %}
+
+{% block title %}Antecedents index{% endblock %}
+
+{% block body %}
+    <h1>Antecedents index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Type</th>
+                <th>Description</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for antecedent in antecedents %}
+            <tr>
+                <td>{{ antecedent.id }}</td>
+                <td>{{ antecedent.type }}</td>
+                <td>{{ antecedent.description }}</td>
+                <td>
+                    <a href="{{ path('antecedents_show', {'id': antecedent.id}) }}">show</a>
+                    <a href="{{ path('antecedents_edit', {'id': antecedent.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('antecedents_new') }}">Create new</a>
+{% endblock %}

@@ -18,6 +18,19 @@ class PatientRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Patient::class);
     }
+    public function findPatientById($idV)
+    {
+        $query = $this->_em->createQuery(
+            'SELECT t
+         FROM App\Entity\Patient t
+         WHERE t.id = :id
+         ORDER BY t.id
+         ASC'
+        )
+            ->setParameter('id', $idV)
+        ;
+        return $query->execute();
+    }
 
     // /**
     //  * @return Patient[] Returns an array of Patient objects

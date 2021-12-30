@@ -31,6 +31,133 @@ class PatientRepository extends ServiceEntityRepository
         ;
         return $query->execute();
     }
+    //retrouver toutes les hommes
+    public function findPatientByHomme()
+    {
+        $query = $this->_em->createQuery(
+            'SELECT t
+         FROM App\Entity\Patient t
+         WHERE t.sexe = :sexe
+         ORDER BY t.sexe
+         ASC'
+        )
+            ->setParameter('sexe', 'homme')
+        ;
+        return $query->execute();
+    }
+    //retrouver toutes les femmes
+    public function findPatientByFemme()
+    {
+        $query = $this->_em->createQuery(
+            'SELECT t
+         FROM App\Entity\Patient t
+         WHERE t.sexe = :sexe
+         ORDER BY t.sexe
+         ASC'
+        )
+            ->setParameter('sexe', 'femme')
+        ;
+        return $query->execute();
+    }
+    //retrouver touts personnes ont l'age supérieur a 50
+    public function findPatientByAgeSup50()
+    {
+        $query = $this->_em->createQuery(
+            'SELECT t
+         FROM App\Entity\Patient t
+         WHERE t.age >= :age
+         ORDER BY t.age
+         ASC'
+        )
+            ->setParameter('age', 50)
+        ;
+        return $query->execute();
+    }
+    //retrouver touts personnes ont l'age supérieur a 50
+    public function findPatientByAgeInf50()
+    {
+        $query = $this->_em->createQuery(
+            'SELECT t
+         FROM App\Entity\Patient t
+         WHERE t.age <= :age
+         ORDER BY t.age
+         ASC'
+        )
+            ->setParameter('age', 50)
+        ;
+        return $query->execute();
+    }
+    //retrouver touts personnes de tunis
+    public function findPatientDeTunis()
+    {
+        $query = $this->_em->createQuery(
+            'SELECT t
+         FROM App\Entity\Patient t
+         WHERE t.adr <= :adr
+         ORDER BY t.adr
+         ASC'
+        )
+            ->setParameter('adr', 'tunis')
+        ;
+        return $query->execute();
+    }
+    //retrouver touts personnes de marsa
+    public function findPatientDeMarsa()
+    {
+        $query = $this->_em->createQuery(
+            'SELECT t
+         FROM App\Entity\Patient t
+         WHERE t.adr <= :adr
+         ORDER BY t.adr
+         ASC'
+        )
+            ->setParameter('adr', 'marsa')
+        ;
+        return $query->execute();
+    }
+    //retrouver touts personnes de mednine
+    public function findPatientDeMednine()
+    {
+        $query = $this->_em->createQuery(
+            'SELECT t
+         FROM App\Entity\Patient t
+         WHERE t.adr <= :adr
+         ORDER BY t.adr
+         ASC'
+        )
+            ->setParameter('adr', 'mednine')
+        ;
+        return $query->execute();
+    }
+    //retrouver touts personnes de Metlaoui
+    public function findPatientDeMetlaoui()
+    {
+        $query = $this->_em->createQuery(
+            'SELECT t
+         FROM App\Entity\Patient t
+         WHERE t.adr <= :adr
+         ORDER BY t.adr
+         ASC'
+        )
+            ->setParameter('adr', 'metlaoui')
+        ;
+        return $query->execute();
+    }
+    //retrouver touts personnes de beja
+    public function findPatientDeBeja()
+    {
+        $query = $this->_em->createQuery(
+            'SELECT t
+         FROM App\Entity\Patient t
+         WHERE t.adr <= :adr
+         ORDER BY t.adr
+         ASC'
+        )
+            ->setParameter('adr', 'beja')
+        ;
+        return $query->execute();
+    }
+
 
     // /**
     //  * @return Patient[] Returns an array of Patient objects

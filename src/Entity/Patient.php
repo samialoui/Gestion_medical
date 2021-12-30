@@ -62,6 +62,11 @@ class Patient
      */
     private $Consultation;
 
+    /**
+     * @ORM\Column(type="string", length=7, nullable=true)
+     */
+    private $color;
+
 
 
     public function getId(): ?int
@@ -153,8 +158,8 @@ class Patient
         return $this;
     }
  public function __toString(){
-                  return $this->nom .' '.$this->prenom;
-             }
+                           return $this->nom .' '.$this->prenom;
+                      }
 
     public function getConsultation(): ?Consultation
     {
@@ -164,6 +169,18 @@ class Patient
     public function setConsultation(?Consultation $consultation): self
     {
         $this->consultation = $consultation;
+
+        return $this;
+    }
+
+    public function getColor(): ?string
+    {
+        return $this->color;
+    }
+
+    public function setColor(?string $color): self
+    {
+        $this->color = $color;
 
         return $this;
     }

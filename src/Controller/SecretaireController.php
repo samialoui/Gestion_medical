@@ -6,6 +6,7 @@ use App\Entity\Patient;
 
 use App\Entity\Users;
 use App\Repository\RendezVousRepository;
+use Symfony\Component\Form\Extension\Core\Type\ColorType;
 use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
@@ -59,6 +60,7 @@ class SecretaireController extends AbstractController
             ->add('numDos',TextType::class)
             ->add('numTel',TextType::class)
             ->add('adr',TextType::class)
+            ->add('color',ColorType::class)
             ->add('save',SubmitType::class,array('label'=>'Ajouter'))->getForm();
         $form->handleRequest($request);
         if( $form->isSubmitted() && $form->isValid()){
@@ -86,6 +88,8 @@ class SecretaireController extends AbstractController
             ->add('numDos',TextType::class)
             ->add('numTel',TextType::class)
             ->add('adr',TextType::class)
+            ->add('consultation')
+            ->add('color',ColorType::class)
             ->add('save',SubmitType::class,array('label'=>'Modifier'))->getForm();
         $form->handleRequest($request);
         if( $form->isSubmitted() && $form->isValid()){

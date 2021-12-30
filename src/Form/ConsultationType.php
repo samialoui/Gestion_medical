@@ -16,7 +16,6 @@ class ConsultationType extends AbstractType
             ->add('Pat')
             ->add('dataCons', DateTimeType::class,['date_widget'=>'single_text'])
             ->add('diagnostic')
-            ->add('medecin')
         ;
     }
 

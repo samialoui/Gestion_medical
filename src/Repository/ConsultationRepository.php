@@ -18,7 +18,34 @@ class ConsultationRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Consultation::class);
     }
-
+    //retrouver touts consultations ont le diagnostic en cours
+    public function findDiagnosticByDiag1()
+    {
+        $query = $this->_em->createQuery(
+            'SELECT c
+         FROM App\Entity\Consultation c
+         WHERE c.diagnostic = :diagnostic
+         ORDER BY c.diagnostic
+         ASC'
+        )
+            ->setParameter('diagnostic', 'en cours')
+        ;
+        return $query->execute();
+    }
+    //retrouver touts consultations ont le diagnostic en attente
+    public function findDiagnosticByDiag2()
+    {
+        $query = $this->_em->createQuery(
+            'SELECT c
+         FROM App\Entity\Consultation c
+         WHERE c.diagnostic >= :diagnostic
+         ORDER BY c.diagnostic
+         ASC'
+        )
+            ->setParameter('diagnostic', 'en attente')
+        ;
+        return $query->execute();
+    }
     // /**
     //  * @return Consultation[] Returns an array of Consultation objects
     //  */

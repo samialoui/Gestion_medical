@@ -19,6 +19,7 @@ class DiagnosticsRepository extends ServiceEntityRepository
         parent::__construct($registry, Diagnostics::class);
     }
 
+
     // /**
     //  * @return Diagnostics[] Returns an array of Diagnostics objects
     //  */
